@@ -2,7 +2,7 @@
 
 This application is designed using Spring Boot version 2.2.1.RELEASE and Java version 11. It is backward compatible with Java version till Java 1.8. API’s of this app are designed using Spring MVC pattern. This application is designed to work in asynchronous mode using multithreading such that it can concurrently handle multiple requests at a time. It basically uses “ThreadPoolTaskExecutor” as an asynchronous executer. As application involves more IO based operation, I have considered below formula to decide size of thread pool.
 
-Approx thread pool size = No of CPU cores + (1+ (wait time/total CPU time))
+		  Approx thread pool size = No of CPU cores + (1+ (wait time/total CPU time))
 			                  = 8 + (1 + (500/2500)) = 9.6 or 10 Approx
 
 (Processor is Octa core processor and assumptions – wait time = 500 ms & total CPU time = 2500 ms)
@@ -59,7 +59,7 @@ How to set up the application and run it? You can try any one of below 3 options
 OPTION 1
 
 1)	Make sure java and maven are installed in the system and JAVA_HOME, MAVEN_HOME env variables are set to respective directories.
-2)	Clone the project from github repo using the link –
+2)	Clone the project from github repo using the link – https://github.com/AbhijitKangale/NumberGenerator
 3)	Import the project in eclipse as an existing maven project.
 4)	Build the project using maven build command – “mvn clean install”
 5)	Run the redis server.
@@ -117,7 +117,7 @@ Note – Other tests can be performed in similar way.
 
 OPTION 2
 1)	Make sure java and maven are installed in the system and JAVA_HOME, MAVEN_HOME env variables are set to respective directories.
-2)	Clone the project from github repo using the link –
+2)	Clone the project from github repo using the link – https://github.com/AbhijitKangale/NumberGenerator
 3)	Build the project using maven build command – “mvn clean install”
 4)	Run the redis server.
 5)	Download and install tomcat from Apache website.
@@ -130,13 +130,14 @@ OPTION 3
 1)	Make sure java and maven are installed in the system and JAVA_HOME, MAVEN_HOME env variables are set to respective directories.
 2)	Make sure docker is installed in your system.
 3)	Make sure DOCKER_HOST environment variable is set to tcp://localhost:2375
-4)	Run the docker as demon process.
-5)	Run the redis server.
-6)	Clone the project from github repo using the link –
-7)	Build the project and generate docker image by running this command in command prompt – “mvn clean package docker:build”. This will generate the war file and docker image file in path {project.build.directory}/target. Pom.xml file is configured with docker maven plugin and related configuration which will generate docker image file.
-8)	Go to this path {project.build.directory}/target and execute docker command “docker run -d -p 8081:80 numberGeneratorApp”. 
-9)	Step 7 will create docker container and run our application. Here application port 8081 is mapped to port 80 of docker. “numberGeneratorApp” is the image file generated from docker build command from step 6.
-10)	Test various scenarios mentioned in OPTION 1.
+4)	Clone the project from github repo using the link – https://github.com/AbhijitKangale/NumberGenerator
+5)	Run the docker as demon process.
+6)	Run the redis server.
+7)	Clone the project from github repo using the link –
+8)	Build the project and generate docker image by running this command in command prompt – “mvn clean package docker:build”. This will generate the war file and docker image file in path {project.build.directory}/target. Pom.xml file is configured with docker maven plugin and related configuration which will generate docker image file.
+9)	Go to this path {project.build.directory}/target and execute docker command “docker run -d -p 8081:80 numberGeneratorApp”. 
+10)	Step 7 will create docker container and run our application. Here application port 8081 is mapped to port 80 of docker. “numberGeneratorApp” is the image file generated from docker build command from step 6.
+11)	Test various scenarios mentioned in OPTION 1.
 
 Things considered as out of scope for this application.
 1)	Security – Managing security of the application is not considered at this point in time.
